@@ -1,31 +1,57 @@
 import "./App.css";
 
+function BoxSideTop() {
+  return <div className="box-side-top"></div>;
+}
+
+function BoxCenterTop() {
+  return <div className="box-center-top">
+    <BoxCenterTopContent name="Pauline"/>
+    <BoxCenterTopContent name="Ochoa"/>
+  </div>;
+}
+
+function BoxCenterTopContent(props) {
+  return <div className="box-center-top-content">{props.name}</div>;
+}
+
+function SectionTop() {
+  return <div className="section-top">
+    <BoxSideTop />
+    <BoxCenterTop />
+    <BoxSideTop />
+  </div>;
+}
+
+function SectionBottom() {
+  return <div className="section-bottom">
+    <BoxSideBottom />
+    <BoxCenterBottom text="C-PCIT9"/>
+    <BoxCenterBottom text="IT3A"/>
+    <BoxSideBottom />
+  </div>;
+}
+
+function BoxSideBottom() {
+  return <div className="box-side-bottom"></div>;
+}
+
+function BoxCenterBottom(props) {
+  return <div className="box-center-bottom">{props.text}</div>;
+}
+
 function App() {
   return (
-    <div className="main-container">
-      <div className="top-row">
-        <div className="top-left"></div>
-        <div className="top-center">
-          <div className="top-center-box"></div>
-          <div className="top-center-box"></div>
-        </div>
-        <div className="top-right"></div>
-      </div>
-      <div className="middle-row">
-        <div className="middle-left"></div>
-        <div className="middle-right">
-          <div className="middle-right-box-up"></div>
-          <div className="middle-right-box-down"></div>
+    <div className="layout-container">
+      <SectionTop />
+      <div className="section-middle">
+        <div className="middle-left-box"></div>
+        <div className="middle-right-box">
+          <div className="right-box-upper"></div>
+          <div className="right-box-lower"></div>
         </div>
       </div>
-      <div className="bottom-row">
-        <div className="bottom-left"></div>
-        <div className="bottom-center">
-          <div className="bottom-center-box"></div>
-          <div className="bottom-center-box"></div>
-        </div>
-        <div className="bottom-right"></div>
-      </div>
+      <SectionBottom />
     </div>
   );
 }
